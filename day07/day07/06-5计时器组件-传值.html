@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div.box{
+				border: 1px solid red;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="root"></div>
+	</body>
+	<script src="lib/react.development.js"></script>
+	<script src="lib/react-dom.development.js"></script>
+	<script src="lib/babel.min.js"></script>
+	<script type="text/babel">
+    	//用函数表示组件 传值
+     	function Clock(props){
+    		return (<div className="box">
+				    			<h1>当前时间:</h1>
+				    			<h2>props:{JSON.stringify(props)}</h2>
+				    			<h2>现在时间:{props.date2.toLocaleString()}</h2>
+				    		</div>);
+    	}
+    	function tick(){
+			ReactDOM.render(
+				Clock({date2:new Date()}),
+				document.querySelector("#root"));
+    	}
+
+    	setInterval(tick,1000);
+	</script>
+</html>

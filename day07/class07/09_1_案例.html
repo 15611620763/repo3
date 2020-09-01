@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React</title>
+    <script src="../lib/react.development.js"></script>
+    <script src="../lib/react-dom.development.js"></script>
+    <script src="../lib/babel.min.js"></script>
+    <style>
+    	img{
+    		width: 50px;
+    		height: 50px;
+    	}
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+    	let arr=[
+					{
+						"name": "冰箱1",
+						"img":"bx1.jpg",
+						"price": "1001",
+						"sex":"0"
+					}, {
+						"name": "冰箱2",
+						"img":"bx2.jpg",
+						"price": "2001"
+					}, {
+						"name": "冰箱3",
+						"img":"bx3.jpg",
+						"price": "3001"
+					}, {
+						"name": "冰箱4",
+						"img":"bx4.jpg",
+						"price": "4001"
+					}, {
+						"name": "冰箱5",
+						"img":"bx5.jpg",
+						"price": "5001"
+					}
+				];
+				
+//				let Li=props=>{
+//					return (
+//						<li>
+//							<img src={props.img} alt={props.name} />
+//							<div>
+//								名称:{props.name}
+//							</div>
+//							<div>
+//								价格:{props.price}
+//							</div>
+//						</li>
+//					)
+//				}
+			/*
+			JSX中只能有一个根元素
+			{}可以表达式
+			JSX中变量用{},若有拼接{"字符串"+str}
+			JSX中可以使用三目运算符,不能使用if...else
+			class名称必须用className,for必须用htmlFor
+			内联样式
+			JSX中自定义属性,尽量加data(可以不加),但必须小写
+			
+			
+			
+			*/
+
+				function Li(props){
+					return (
+						<li className="kky">
+							<img src={"./img/"+props.img} alt={props.name} />
+							<div>
+								名称:{props.name}
+							</div>
+							<div>
+								价格:{props.price}===>{props.sex=="0" ? "男" :"女"}
+							</div>
+						</li>
+					)
+				}
+				
+				let Lis=arr.map(function(item,index){
+					//console.log("item:",item);
+					return <Li key={index} img={item.img} name={item.name} price={item.price} sex={item.sex}/>
+				})
+				
+				console.log("Lis:",Lis);
+    	
+      ReactDOM.render(
+        <ul>{Lis}</ul>,
+        document.getElementById('root')
+      );
+
+
+//var bookstore=[
+//	{
+//		tilte:"every",
+//		author:"Giada",
+//		year:2005,
+//		price:30.00
+//	},
+//	{},
+//	{}
+//]
+
+
+    </script>
+  </body>
+</html>
+

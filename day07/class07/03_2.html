@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React</title>
+    <script src="../lib/react.development.js"></script>
+    <script src="../lib/react-dom.development.js"></script>
+    <script src="../lib/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+	//console.dir(React);
+	//let h1=React.createElement("div",{id:"d1"},"这是div");
+	//console.log("h1:",h1);
+	
+//	let obj={
+//		y:1
+//	}
+//	let {x:y}=obj;
+	
+	let {createElement:c}=React;//对象的解构赋值
+	console.log("c:",c);
+	let h1=c("div",{id:"d1"},"这是div");
+		
+      ReactDOM.render(
+        h1,
+        document.getElementById('root')
+      );
+
+    </script>
+  </body>
+</html>

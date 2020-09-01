@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React</title>
+    <script src="../lib/react.development.js"></script>
+    <script src="../lib/react-dom.development.js"></script>
+    <script src="../lib/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+    	//组合组件/复合组件
+    	//组件中props只能读,不能改
+    	function Name1(props){
+    		return <div>
+    			<h2>姓名:{props.name}</h2>
+    		</div>
+    	}
+    	function Age1(props){
+    		return <div>
+    			<h2>年龄:{props.age}</h2>
+    		</div>
+    	}
+    	
+    	function Sex1(props){
+    		return <div>
+    			<h2>性别:{props.sex==0?"男":"女"}</h2>
+    		</div>
+    	}
+    	
+    	function Obj1(){
+    		return <div className="box">
+    			<Name1 name="小明" />
+    			<Age1 age="20" />
+    			<Sex1 sex="0" />
+    		</div>
+    	}
+    	
+    	//提取组件(把一个复杂的组件拆分成多个小组件)
+    	class Name2 extends React.Component{
+    		render(){
+    			return  <div>
+    			<h2>姓名:{this.props.name}</h2>
+    		</div>
+    		}
+    	}
+    	class Age2 extends React.Component{
+    		render(){
+    			return  <div>
+    			<h2>年龄:{this.props.age}</h2>
+    		</div>
+    		}
+    	}
+    	class Sex2 extends React.Component{
+    		render(){
+    			return  <div>
+    			<h2>性别:{this.props.sex==0?"男":"女"}</h2>
+    		</div>
+    		}
+    	}
+    	
+    	class Obj2 extends React.Component{
+    		render(){
+    			 return (
+	    			 	<div className="box">
+	    				<Name2 name="小花" />
+	    				<Age2 age="18" />
+	    				<Sex2 sex="1" />
+	    			</div>
+    			 )
+    		}
+    	}
+    	
+    	
+    	let ele=<div>
+    		<Obj1 />
+    		<Obj2 />
+    	</div>
+      ReactDOM.render(
+        ele,
+        document.getElementById('root')
+      );
+
+    </script>
+  </body>
+</html>

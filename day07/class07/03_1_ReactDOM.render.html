@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React</title>
+    <script src="../lib/react.development.js"></script>
+    <script src="../lib/react-dom.development.js"></script>
+    <script src="../lib/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+    	
+    	//let h1= <h1 className="kky">1123Hello, world!</h1>;//JSX
+    	
+    	
+		// React.createElement(tagName,attr,children/content)
+		//let h1=React.createElement("h1",{id:"t1",className:"cla"},"这是标题")
+		//let h1=React.createElement("h1",{},"这是标题")
+		let h1=React.createElement("h1",null,"这是标题")
+		
+//		var div=document.creatElement("div");
+//		div.id="d1";
+//		div.className="kky";
+//		document.body.appendChild(div);
+		
+	    ReactDOM.render(
+	       h1,
+	       document.getElementById('root')
+	    );
+
+    </script>
+  </body>
+</html>

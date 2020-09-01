@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="lib/react.development.js"></script>
+    <script src="lib/react-dom.development.js"></script>
+    <script src="lib/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+        let {createElement:c} = React;
+        console.log("c:",c);
+        let ul = c("ul",{className:"ul"},
+            c("li",null,
+                c("h2",{},"一级菜单",
+                    c("ul",{},
+                        c("li",{},"a",
+                            c("li",{},"b",
+                                c("li",{},"c",
+                                )
+                            )
+                        )
+                    )
+                )
+           ),c("li",null,
+                c("h2",{},"二级菜单",
+                    c("ul",{},
+                        c("li",{},"a",
+                            c("li",{},"b",
+                                c("li",{},"c",
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        )
+
+    
+        ReactDOM.render(
+            ul,
+            document.getElementById('root')
+        );
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+  <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			img{
+				width: 50px;
+				height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="root"></div>
+	</body>
+	<script src="lib/react.development.js"></script>
+	<script src="lib/react-dom.development.js"></script>
+	<script src="lib/babel.min.js"></script>
+	<script type="text/babel">
+    	let arr=[
+					{
+						"name": "冰箱1",
+						"img":"bx1.jpg",
+						"price": "1001"
+					}, {
+						"name": "冰箱2",
+						"img":"bx2.jpg",
+						"price": "2001"
+					},{
+						"name": "冰箱3",
+						"img":"bx3.jpg",
+						"price": "3001"
+					}, {
+						"name": "冰箱4",
+						"img":"bx4.jpg",
+						"price": "4001"
+					}, {
+						"name": "冰箱5",
+						"img":"bx5.jpg",
+						"price": "5001"
+					}
+				];
+            
+            function Li(props){
+            	return(
+            		<li>
+            		    <img src={"./img/"+props.img} alt={props.name} />
+            		    <div>
+            		        名称:{props.name}
+            		    </div>
+            		    <div>
+            		        价格:{props.price}
+            		    </div>
+            		</li>
+            	)
+            }
+            let Lis=arr.map(function(item,index){
+            	return<Li key={index} img={item.img} name= {item.name} price={item.price} />
+            })
+             
+            ReactDOM.render(
+            	<ul>{Lis}</ul>,
+            	document.querySelector("#root"));
+
+
+    </script>
+
+</html>

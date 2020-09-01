@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React</title>
+    <script src="../lib/react.development.js"></script>
+    <script src="../lib/react-dom.development.js"></script>
+    <script src="../lib/babel.min.js"></script>
+    <style>
+    	div.box{
+    		border: 1px solid red;
+    	}
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+    	/*
+    	 * JSX
+    	 * 1.只有一个根节点
+    	 * 2.多行可以用(),括起来
+    	 */
+    	function tick(){
+    		let ele=(<div className="box">
+				    			<h1>当前时间:</h1>
+				    			<h2>{new Date().toLocaleString()}</h2>
+				    		</div>);
+				    		
+    		ReactDOM.render(ele,document.querySelector("#root"));
+    	}
+    	
+    	setInterval(tick,1000);
+
+    </script>
+  </body>
+</html>

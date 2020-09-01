@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React</title>
+    <script src="../lib/react.development.js"></script>
+    <script src="../lib/react-dom.development.js"></script>
+    <script src="../lib/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+    	/*
+    	 * 1.函数组件
+    	 * 2.class组件
+    	 * 
+    	 */
+    	function HelloMsg(props){
+    		console.log("props:",props);
+    		return <h2>你好===>{props.name}</h2>
+    	}
+    	
+    	class HiMsg extends React.Component{
+    		render(){
+    			console.log("this:",this);
+    			return <h2>你好===>{this.props.name}</h2>
+    		}
+    	}
+    	
+    	let ele=<div>
+    		<HelloMsg name="kky1" />
+    		<HiMsg name="kky2" />
+    	</div>
+    	
+    	
+//    ReactDOM.render(
+//      HelloMsg({name:"kky"}),
+//      document.getElementById('root')
+//    );
+      
+//    ReactDOM.render(
+//      <div>
+//      	{HelloMsg({name:"kky"})}
+//      </div>,
+//      document.getElementById('root')
+//    );
+			
+//				ReactDOM.render(
+//					<HiMsg name="kky2" />,
+//					document.querySelector("#root")
+//				)
+			
+				ReactDOM.render(
+					ele,
+					document.querySelector("#root")
+				)
+
+    </script>
+  </body>
+</html>

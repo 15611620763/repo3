@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="lib/react.development.js"></script>
+	    <script src="lib/react-dom.development.js"></script>
+	    <script src="lib/babel.min.js"></script>
+	</head>
+	<body>
+        <div id="root"></div>
+		<script type="text/babel">
+			let {createElement:c}=React;
+			let ul=c('ul',{className:"ul"},
+					c('li',{},
+						c('ul',{},"一级菜单",
+							c('li',{},"A"),
+							c('li',{},"B"),
+							c('li',{},"C"))
+				    ),
+				    c('li',{},
+					    c('ul',{},"一级菜单",
+							c('li',{},"A"),
+							c('li',{},"B"),
+							c('li',{},"C"))
+					)
+	        )
+	        ReactDOM.render(
+	            ul,
+	            document.getElementById('root')
+	        );
+		</script>
+	</body>
+</html>

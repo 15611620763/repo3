@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="lib/react.development.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/react-dom.development.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/babel.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			img{
+				width: 50px;
+			}
+			table,tr,th,td{
+				text-align: center;
+				width: 700px;
+				border: solid 1px;
+				border-collapse: collapse;
+			}	
+			table{
+				/*margin: 0 auto;*/
+			}		
+		</style>
+	</head>
+	<body>
+		<div id="root"></div>
+		<script type="text/babel">
+			
+			let arr=[
+					{
+						"name": "冰箱1",
+						"img":"bx1.jpg",
+						"price": "1001"
+					}, {
+						"name": "冰箱2",
+						"img":"bx2.jpg",
+						"price": "2001"
+					}, {
+						"name": "冰箱3",
+						"img":"bx3.jpg",
+						"price": "3001"
+					}, {
+						"name": "冰箱4",
+						"img":"bx4.jpg",
+						"price": "4001"
+					}, {
+						"name": "冰箱5",
+						"img":"bx5.jpg",
+						"price": "5001"
+					}
+				];
+				
+				
+ 
+				function Ao(){
+					return(
+						    <tr>
+							   <th>图片</th>
+							   <th>名字</th>
+							   <th>价格</th>
+						    </tr>
+					)
+				}
+				
+				function Yo(props){
+					return(
+						 <tr>
+						   <td><img src = {"./img/"+props.img} alt={props.name} /> </td>
+						   
+						   <td>{props.name}</td>
+						   
+						   <td>{props.price}</td>
+						</tr>
+					)
+				}
+				
+				let lis = arr.map(function(item,index){
+					return <Yo key={index} img={item.img} name={item.name} price={item.price} />
+					
+				})
+				
+			 function Bge(){
+			 	return(
+				 	<table>
+				 	  <thead>
+				 	      <Ao />
+				 	  </thead>
+				 	  
+				 	  <tbody>
+				 	   {lis}
+				 	  </tbody>
+				 	  
+				 	</table>
+			 	)
+			 }
+			
+			ReactDOM.render(
+				<Bge />,
+				document.getElementById("root")
+			)
+		</script>
+	</body>
+</html>
